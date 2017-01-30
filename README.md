@@ -7,7 +7,7 @@ Quantitative Genomics and Genetics 2017 Spring
 ## Computer Lab Material 
 
 
-### Lab 1 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG16_computerlab/blob/master/Lab1/QG16_computerlab1_page_ver.html "Lab1") , [Data](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG16_computerlab/blob/master/Lab1/QG16-lab1-data.csv)
+### Lab 1 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG16_computerlab/blob/master/Lab1/QG17_computerlab1_page_ver.html "Lab1") , [Data](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG16_computerlab/blob/master/Lab1/QG16-lab1-data.csv)
 ---
 
 * R Basics 
