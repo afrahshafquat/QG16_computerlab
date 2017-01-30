@@ -7,53 +7,53 @@ Quantitative Genomics and Genetics 2017 Spring
 ## Computer Lab Material 
 
 
-### Lab 1 - [Notes](http://htmlpreview.github.io/?https://github.com/jinhyunju/QG16_computerlab/blob/master/Lab1/QG16_computerlab1_page_ver.html "Lab1") , [Data](http://htmlpreview.github.io/?https://github.com/jinhyunju/QG16_computerlab/blob/master/Lab1/QG16-lab1-data.csv)
+### Lab 1 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG16_computerlab/blob/master/Lab1/QG16_computerlab1_page_ver.html "Lab1") , [Data](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG16_computerlab/blob/master/Lab1/QG16-lab1-data.csv)
 ---
 
 * R Basics 
 * Data structures 
 
-### Lab 2 - [Notes](http://htmlpreview.github.io/?https://github.com/jinhyunju/QG16_computerlab/blob/master/Lab2/QG16_computerlab2.html "Lab1")
+### Lab 2 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG16_computerlab/blob/master/Lab2/QG16_computerlab2.html "Lab1")
 ---
 
 * Functions
 * For Loops
 * Vector/Matrix Calculations 
 
-### Lab 3 - [Notes](http://htmlpreview.github.io/?https://github.com/jinhyunju/QG16_computerlab/blob/master/Lab3/QG16_computerlab3.html "Lab3")
+### Lab 3 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG16_computerlab/blob/master/Lab3/QG16_computerlab3.html "Lab3")
 ---
 
 * Basic Data Visualization
 * Functions for Probability Distributions
 
-### Lab 4 - [Notes](http://htmlpreview.github.io/?https://github.com/jinhyunju/QG16_computerlab/blob/master/Lab4/QG16_computerlab4.html "Lab4")
+### Lab 4 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG16_computerlab/blob/master/Lab4/QG16_computerlab4.html "Lab4")
 ---
 
 * Boolean data type
 * If statements
 
-### Lab 5 - [Notes](http://htmlpreview.github.io/?https://github.com/jinhyunju/QG16_computerlab/blob/master/Lab5/QG16_computerlab5.html "Lab5")
+### Lab 5 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG16_computerlab/blob/master/Lab5/QG16_computerlab5.html "Lab5")
 ---
 
 * Random Numbers in R
 * Sampling Distribution of the Mean and P-values
 
 
-### Lab 6 - [Notes](http://htmlpreview.github.io/?https://github.com/jinhyunju/QG16_computerlab/blob/master/Lab6/QG16_computerlab6.html "Lab6")
+### Lab 6 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG16_computerlab/blob/master/Lab6/QG16_computerlab6.html "Lab6")
 ---
 
 * Handling genotype data 
 
-### Lab 7 - [Notes](http://htmlpreview.github.io/?https://github.com/jinhyunju/QG16_computerlab/blob/master/Lab7/QG16_computerlab7.html "Lab7")
+### Lab 7 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG16_computerlab/blob/master/Lab7/QG16_computerlab7.html "Lab7")
 ---
 
 * Logistic Regression
 
-### Lab 8 - [Notes](http://htmlpreview.github.io/?https://github.com/jinhyunju/QG16_computerlab/blob/master/Lab8/QG16_computerlab8.html "Lab8"), [Data](https://github.com/jinhyunju/QG16_computerlab/raw/master/Lab8/pca_example_data.csv)
+### Lab 8 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG16_computerlab/blob/master/Lab8/QG16_computerlab8.html "Lab8"), [Data](https://github.com/jinhyunju/QG16_computerlab/raw/master/Lab8/pca_example_data.csv)
 ---
 * Principal Component Analysis
 
-### Lab 9 - [Notes](http://htmlpreview.github.io/?https://github.com/jinhyunju/QG16_computerlab/blob/master/Lab9/QG16_computerlab9.html "Lab9"), [Genotype Data](https://github.com/jinhyunju/QG16_computerlab/raw/master/Lab9/QG16_lab9_geno.csv), [Phenotype Data](https://github.com/jinhyunju/QG16_computerlab/raw/master/Lab9/QG16_lab9_pheno.csv)
+### Lab 9 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG16_computerlab/blob/master/Lab9/QG16_computerlab9.html "Lab9"), [Genotype Data](https://github.com/jinhyunju/QG16_computerlab/raw/master/Lab9/QG16_lab9_geno.csv), [Phenotype Data](https://github.com/jinhyunju/QG16_computerlab/raw/master/Lab9/QG16_lab9_pheno.csv)
 ---
 
 * The Use of Covariates in Regression Models.
@@ -63,7 +63,7 @@ Quantitative Genomics and Genetics 2017 Spring
 
 * Fitting Linear Mixed Models with the EM algorithm
 
-### Lab 11 - [Notes](http://htmlpreview.github.io/?https://github.com/jinhyunju/QG16_computerlab/blob/master/Lab11/QG16_computerlab11.html "Lab10")
+### Lab 11 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG16_computerlab/blob/master/Lab11/QG16_computerlab11.html "Lab10")
 ---
 
 * Bayesian Inference with Markov Chain Monte Carlo (MCMC) methods
