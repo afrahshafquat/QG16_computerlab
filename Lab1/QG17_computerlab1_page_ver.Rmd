@@ -8,7 +8,7 @@ Quantitative Genomics and Genetics 2016
 
 Computer Lab 1
 ------
--- 4 February 2016
+-- January, 1st, 2017
 
 -- Author: Jin Hyun Ju (jj328@cornell.edu)
 
@@ -19,7 +19,7 @@ Computer Lab 1
 Open a terminal, change directories to your preferred location, and type the following command.
 
 ```{r, eval = FALSE}
-git clone https://github.com/jinhyunju/QG16_computerlab.git
+git clone https://github.com/afrahshafquat/QG16_computerlab.git
 ```
 
 After the initial "cloning" of the repository, you can use this command (while you are in the directory) to download any future updates.
