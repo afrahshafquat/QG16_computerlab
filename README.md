@@ -1,6 +1,6 @@
 Quantitative Genomics and Genetics 2017 Spring
 ------
-## Author: Jin Hyun Ju
+#### Author: Jin Hyun Ju
 
 
 
