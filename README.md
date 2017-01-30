@@ -1,5 +1,8 @@
 Quantitative Genomics and Genetics 2017 Spring
 ------
+## Author: Jin Hyun Ju
+
+
 
 ## Computer Lab Material 
 
