@@ -1,13 +1,5 @@
-Quantitative Genomics and Genetics 2016 Spring
+Quantitative Genomics and Genetics 2017 Spring
 ------
-
-
-### Material For This Week
-
-### Lab 11 - [Notes](http://htmlpreview.github.io/?https://github.com/jinhyunju/QG16_computerlab/blob/master/Lab11/QG16_computerlab11.html "Lab10")
----
-
-* Bayesian Inference with Markov Chain Monte Carlo (MCMC) methods
 
 ## Computer Lab Material 
 
