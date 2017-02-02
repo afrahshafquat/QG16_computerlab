@@ -1,5 +1,5 @@
 ---
-author: "Jinhyun Ju"
+author: "Afrah Shafquat"
 output: html_document
 ---
 
@@ -10,9 +10,7 @@ Computer Lab 1
 ------
 -- February 2nd, 2017
 
--- Author: Jin Hyun Ju (jj328@cornell.edu)
-
--- Edits by: Afrah Shafquat (as3397@cornell.edu)
+-- Author: Afrah Shafquat (as3397@cornell.edu)
 
 **Best way to download computer lab material**
 
