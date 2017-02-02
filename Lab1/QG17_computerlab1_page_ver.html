@@ -120,12 +120,13 @@ $(document).ready(function () {
 </div>
 
 
-<div id="quantitative-genomics-and-genetics-2016" class="section level1">
-<h1>Quantitative Genomics and Genetics 2016</h1>
+<div id="quantitative-genomics-and-genetics-2017" class="section level1">
+<h1>Quantitative Genomics and Genetics 2017</h1>
 <div id="computer-lab-1" class="section level2">
 <h2>Computer Lab 1</h2>
 <p>– January, 1st, 2017</p>
 <p>– Author: Jin Hyun Ju (<a href="mailto:jj328@cornell.edu">jj328@cornell.edu</a>)</p>
+<p>– Edits by: Afrah Shafquat (<a href="mailto:as3397@cornell.edu">as3397@cornell.edu</a>)</p>
 <p><strong>Best way to download computer lab material</strong></p>
 <ul>
 <li>Mac and Linux users</li>
@@ -215,13 +216,11 @@ $(document).ready(function () {
 <li>To see what is in the working directory</li>
 </ul>
 <pre class="r"><code>dir() </code></pre>
-<pre><code>[1] &quot;QG16_computerlab1_page_ver.html&quot; &quot;QG16_computerlab1_page_ver.Rmd&quot; 
-[3] &quot;QG16_subset_only_a.csv&quot;          &quot;QG16-lab1-data.csv&quot;             
-[5] &quot;QG17_computerlab1_page_ver.html&quot; &quot;QG17_computerlab1_page_ver.Rmd&quot; </code></pre>
+<pre><code>[1] &quot;QG17_computerlab1_page_ver.html&quot; &quot;QG17_computerlab1_page_ver.Rmd&quot; 
+[3] &quot;QG17_subset_only_a.csv&quot;          &quot;QG17-lab1-data.csv&quot;             </code></pre>
 <pre class="r"><code>list.files()  # does the same thing</code></pre>
-<pre><code>[1] &quot;QG16_computerlab1_page_ver.html&quot; &quot;QG16_computerlab1_page_ver.Rmd&quot; 
-[3] &quot;QG16_subset_only_a.csv&quot;          &quot;QG16-lab1-data.csv&quot;             
-[5] &quot;QG17_computerlab1_page_ver.html&quot; &quot;QG17_computerlab1_page_ver.Rmd&quot; </code></pre>
+<pre><code>[1] &quot;QG17_computerlab1_page_ver.html&quot; &quot;QG17_computerlab1_page_ver.Rmd&quot; 
+[3] &quot;QG17_subset_only_a.csv&quot;          &quot;QG17-lab1-data.csv&quot;             </code></pre>
 <ul>
 <li>Now that we know where we are let’s see what R can really do.</li>
 </ul>
@@ -425,7 +424,8 @@ character.matrix</code></pre>
 <pre><code>     [,1] [,2] [,3]
 [1,] &quot;a&quot;  &quot;b&quot;  &quot;c&quot; 
 [2,] &quot;d&quot;  &quot;e&quot;  &quot;f&quot; </code></pre>
-<pre class="r"><code>mode(example.matrix4)</code></pre>
+<pre class="r"><code>#Not the statistical mode/ Storage mode of an object
+mode(example.matrix4)</code></pre>
 <pre><code>[1] &quot;numeric&quot;</code></pre>
 <pre class="r"><code>mode(character.matrix)</code></pre>
 <pre><code>[1] &quot;character&quot;</code></pre>
@@ -576,15 +576,15 @@ ls()</code></pre>
 <li><p>Let’s read in a comma separated example file.</p></li>
 <li><p>First, open the file using your text editor (not excel!) and look what’s inside.</p></li>
 </ul>
-<pre class="r"><code>QG16.lab.1 &lt;- read.table(&quot;./QG16-lab1-data.csv&quot;, sep = &quot;,&quot;, header = TRUE)
-QG16.lab.2 &lt;- read.csv(&quot;./QG16-lab1-data.csv&quot;, header = TRUE)</code></pre>
+<pre class="r"><code>QG17.lab.1 &lt;- read.table(&quot;./QG17-lab1-data.csv&quot;, sep = &quot;,&quot;, header = TRUE)
+QG17.lab.2 &lt;- read.csv(&quot;./QG17-lab1-data.csv&quot;, header = TRUE)</code></pre>
 <ul>
 <li><p>The two functions here are essentially doing the samething. You can think of read.csv() as the specialized version of read.table() for csv format files. The default for read.table() is to read in tab-separated files, but it can read in csv files as well if you specify the separating character with sep = “,”.</p></li>
 <li><p>The first thing to do after reading in a data file is to check the dimensions and inspect the data.</p></li>
 </ul>
-<pre class="r"><code>dim(QG16.lab.1)</code></pre>
+<pre class="r"><code>dim(QG17.lab.1)</code></pre>
 <pre><code>[1] 100   6</code></pre>
-<pre class="r"><code>head(QG16.lab.1)     # displays the first 10 rows of the data</code></pre>
+<pre class="r"><code>head(QG17.lab.1)     # displays the first 10 rows of the data</code></pre>
 <pre><code>  genename       data1        data2      data3 factor1 factor2
 1    gene1  1.42866369 -0.157846249  1.3136225       a   info1
 2    gene2 -0.58165021  0.593995373 -0.2319272       b   info2
@@ -592,7 +592,7 @@ QG16.lab.2 &lt;- read.csv(&quot;./QG16-lab1-data.csv&quot;, header = TRUE)</code
 4    gene4  0.58381526 -0.125866753  1.2627935       b   info4
 5    gene5  0.04377365 -0.002239948  0.1445219       a   info5
 6    gene6  0.26732986 -1.756292916  0.5459083       b   info6</code></pre>
-<pre class="r"><code>tail(QG16.lab.1)</code></pre>
+<pre class="r"><code>tail(QG17.lab.1)</code></pre>
 <pre><code>    genename       data1       data2       data3 factor1 factor2
 95    gene95 -0.03194166  1.10455567 -0.36060870       a   info5
 96    gene96 -0.55310621 -0.85785917 -0.72968106       b   info6
@@ -600,7 +600,7 @@ QG16.lab.2 &lt;- read.csv(&quot;./QG16-lab1-data.csv&quot;, header = TRUE)</code
 98    gene98  1.47046411  0.88524913  1.27239848       b   info8
 99    gene99 -0.76495643  0.56850354  1.56419354       a   info9
 100  gene100  0.29042428 -0.09689405 -0.07043415       b  info10</code></pre>
-<pre class="r"><code>rownames(QG16.lab.1)</code></pre>
+<pre class="r"><code>rownames(QG17.lab.1)</code></pre>
 <pre><code>  [1] &quot;1&quot;   &quot;2&quot;   &quot;3&quot;   &quot;4&quot;   &quot;5&quot;   &quot;6&quot;   &quot;7&quot;   &quot;8&quot;   &quot;9&quot;   &quot;10&quot;  &quot;11&quot; 
  [12] &quot;12&quot;  &quot;13&quot;  &quot;14&quot;  &quot;15&quot;  &quot;16&quot;  &quot;17&quot;  &quot;18&quot;  &quot;19&quot;  &quot;20&quot;  &quot;21&quot;  &quot;22&quot; 
  [23] &quot;23&quot;  &quot;24&quot;  &quot;25&quot;  &quot;26&quot;  &quot;27&quot;  &quot;28&quot;  &quot;29&quot;  &quot;30&quot;  &quot;31&quot;  &quot;32&quot;  &quot;33&quot; 
@@ -611,13 +611,13 @@ QG16.lab.2 &lt;- read.csv(&quot;./QG16-lab1-data.csv&quot;, header = TRUE)</code
  [78] &quot;78&quot;  &quot;79&quot;  &quot;80&quot;  &quot;81&quot;  &quot;82&quot;  &quot;83&quot;  &quot;84&quot;  &quot;85&quot;  &quot;86&quot;  &quot;87&quot;  &quot;88&quot; 
  [89] &quot;89&quot;  &quot;90&quot;  &quot;91&quot;  &quot;92&quot;  &quot;93&quot;  &quot;94&quot;  &quot;95&quot;  &quot;96&quot;  &quot;97&quot;  &quot;98&quot;  &quot;99&quot; 
 [100] &quot;100&quot;</code></pre>
-<pre class="r"><code>colnames(QG16.lab.1) # checking the column names of the data</code></pre>
+<pre class="r"><code>colnames(QG17.lab.1) # checking the column names of the data</code></pre>
 <pre><code>[1] &quot;genename&quot; &quot;data1&quot;    &quot;data2&quot;    &quot;data3&quot;    &quot;factor1&quot;  &quot;factor2&quot; </code></pre>
 <ul>
 <li>This data set has a column named factor1 which has two levels = “a” and “b”. Let’s say we are only interested in the entries that have an “a” for factor1. We can subset the data by using the subset() function.</li>
 </ul>
-<pre class="r"><code>QG16.lab.1.only.a &lt;- subset(QG16.lab.1, factor1 == &quot;a&quot;)
-QG16.lab.1.only.a</code></pre>
+<pre class="r"><code>QG17.lab.1.only.a &lt;- subset(QG17.lab.1, factor1 == &quot;a&quot;)
+QG17.lab.1.only.a</code></pre>
 <pre><code>   genename       data1        data2       data3 factor1 factor2
 1     gene1  1.42866369 -0.157846249  1.31362251       a   info1
 3     gene3 -1.03955628  1.083860155  0.70506850       a   info3
@@ -672,7 +672,7 @@ QG16.lab.1.only.a</code></pre>
 <ul>
 <li>Let’s save the subset into a csv file by using the function write.table().</li>
 </ul>
-<pre class="r"><code>write.table(QG16.lab.1.only.a, file = &quot;./QG16_subset_only_a.csv&quot;, sep = &quot;,&quot;, quote= FALSE, row.names=FALSE)
+<pre class="r"><code>write.table(QG17.lab.1.only.a, file = &quot;./QG17_subset_only_a.csv&quot;, sep = &quot;,&quot;, quote= FALSE, row.names=FALSE)
 # the quote options remove the &quot;&quot; of the entries. try it with quote = TRUE and see how it is different.
 # row.names = FALSE eliminates the numbers in front of each row</code></pre>
 </div>

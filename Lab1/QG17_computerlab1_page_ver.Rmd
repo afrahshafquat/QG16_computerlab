@@ -3,7 +3,7 @@ author: "Jinhyun Ju"
 output: html_document
 ---
 
-Quantitative Genomics and Genetics 2016
+Quantitative Genomics and Genetics 2017
 ======
 
 Computer Lab 1
@@ -11,6 +11,8 @@ Computer Lab 1
 -- January, 1st, 2017
 
 -- Author: Jin Hyun Ju (jj328@cornell.edu)
+
+-- Edits by: Afrah Shafquat (as3397@cornell.edu)
 
 **Best way to download computer lab material**
 
@@ -358,6 +360,7 @@ example.matrix4
 character.matrix <- matrix(c("a","b","c","d","e","f"), nrow = 2, ncol = 3, byrow=TRUE)
 character.matrix
 
+#Not the statistical mode/ Storage mode of an object
 mode(example.matrix4)
 mode(character.matrix)
 ```
@@ -495,8 +498,8 @@ ls()
 - First, open the file using your text editor (not excel!) and look what's inside.
 
 ```{r, comment=NA}
-QG16.lab.1 <- read.table("./QG16-lab1-data.csv", sep = ",", header = TRUE)
-QG16.lab.2 <- read.csv("./QG16-lab1-data.csv", header = TRUE)
+QG17.lab.1 <- read.table("./QG17-lab1-data.csv", sep = ",", header = TRUE)
+QG17.lab.2 <- read.csv("./QG17-lab1-data.csv", header = TRUE)
 
 ```
 
@@ -505,24 +508,24 @@ QG16.lab.2 <- read.csv("./QG16-lab1-data.csv", header = TRUE)
 - The first thing to do after reading in a data file is to check the dimensions and inspect the data.
 
 ```{r, comment=NA}
-dim(QG16.lab.1)
-head(QG16.lab.1)     # displays the first 10 rows of the data
-tail(QG16.lab.1)
-rownames(QG16.lab.1)
-colnames(QG16.lab.1) # checking the column names of the data
+dim(QG17.lab.1)
+head(QG17.lab.1)     # displays the first 10 rows of the data
+tail(QG17.lab.1)
+rownames(QG17.lab.1)
+colnames(QG17.lab.1) # checking the column names of the data
 ```
 
 - This data set has a column named factor1 which has two levels = "a" and "b". Let's say we are only interested in the entries that have an "a" for factor1. We can subset the data by using the subset() function.
 
 ```{r, comment=NA}
-QG16.lab.1.only.a <- subset(QG16.lab.1, factor1 == "a")
-QG16.lab.1.only.a
+QG17.lab.1.only.a <- subset(QG17.lab.1, factor1 == "a")
+QG17.lab.1.only.a
 ```
 
 - Let's save the subset into a csv file by using the function write.table().
 
 ```{r, comment=NA}
-write.table(QG16.lab.1.only.a, file = "./QG16_subset_only_a.csv", sep = ",", quote= FALSE, row.names=FALSE)
+write.table(QG17.lab.1.only.a, file = "./QG17_subset_only_a.csv", sep = ",", quote= FALSE, row.names=FALSE)
 # the quote options remove the "" of the entries. try it with quote = TRUE and see how it is different.
 # row.names = FALSE eliminates the numbers in front of each row
 ```
