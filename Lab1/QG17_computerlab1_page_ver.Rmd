@@ -8,7 +8,7 @@ Quantitative Genomics and Genetics 2017
 
 Computer Lab 1
 ------
--- January, 1st, 2017
+-- February 2nd, 2017
 
 -- Author: Jin Hyun Ju (jj328@cornell.edu)
 
