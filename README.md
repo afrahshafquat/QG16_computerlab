@@ -1,6 +1,6 @@
 Quantitative Genomics and Genetics 2017 Spring
 ------
-#### Author: Jin Hyun Ju
+#### Author: Afrah Shafquat (as3397@cornell.edu)
 
 
 
