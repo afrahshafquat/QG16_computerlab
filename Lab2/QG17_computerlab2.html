@@ -164,6 +164,9 @@ table(QG17.lab.2$factor1) </code></pre>
 <pre><code>
  a  b 
 50 50 </code></pre>
+<pre class="r"><code># a function to index specific values
+which(example.vector1==3)</code></pre>
+<pre><code>[1] 3</code></pre>
 <ul>
 <li>We can also build custom functions.</li>
 </ul>
@@ -290,6 +293,26 @@ filter(QG17.lab.2,factor1 == &quot;b&quot; &amp; factor2 ==&quot;info8&quot;) # 
 <li><p>You can think of your R session as your workbench, and the packages as specific tools in your toolbox. You wouldn’t empty out the toolbox onto your workbench for a simple task like sanding a surface. The only thing you need is some sandpaper, and any additional tool just occupies additional space and contributes only to the aesthetics of your workspace (or acts against it).</p></li>
 </ul>
 </div>
+<div id="logical-operations" class="section level4">
+<h4>Logical Operations</h4>
+<ul>
+<li>And (&amp;): Both statements on either side of the operator needs to be true</li>
+<li>Or (|): One of the statements on either side of the operator needs to be true</li>
+<li>Not (!): True only if the statement is False (vice versa)</li>
+</ul>
+<pre class="r"><code>print (T&amp;F)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>print (T&amp;T)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>print (T|F)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>print (T|T)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>print(!F)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>print(!T)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+</div>
 </div>
 <div id="for-loops" class="section level3">
 <h3>2. for loops</h3>
@@ -306,7 +329,7 @@ for ( i in 1:N ){
 Processing loop number =  2 
 Processing loop number =  3 </code></pre>
 <ul>
-<li>You can use any legal variable name for the counter</li>
+<li>You can use any legal variable name for the counter [Please be careful about overriding the counter variable inside the loop. You will be surprised how many people make this mistake.]</li>
 </ul>
 <pre class="r"><code>for ( anything_goes in c(1,3,5) ){
     cat(&quot;Processing loop number = &quot;,anything_goes,&quot;\n&quot;)
@@ -455,38 +478,38 @@ value == &quot;A&quot;</code></pre>
 <li>Example output</li>
 </ul>
 <pre><code>Total number of students =  20 
-4 students received  A 
-3 students received  B 
-4 students received  C 
-5 students received  D 
+2 students received  A 
+2 students received  B 
+6 students received  C 
+6 students received  D 
 4 students received  F </code></pre>
 <pre><code>$Overview
 student_letter_grade
 A B C D F 
-4 3 4 5 4 
+2 2 6 6 4 
 
 $LetterGrade
  student1  student2  student3  student4  student5  student6  student7 
-      &quot;C&quot;       &quot;D&quot;       &quot;B&quot;       &quot;A&quot;       &quot;B&quot;       &quot;D&quot;       &quot;A&quot; 
+      &quot;A&quot;       &quot;F&quot;       &quot;C&quot;       &quot;F&quot;       &quot;D&quot;       &quot;C&quot;       &quot;D&quot; 
  student8  student9 student10 student11 student12 student13 student14 
-      &quot;F&quot;       &quot;C&quot;       &quot;F&quot;       &quot;D&quot;       &quot;C&quot;       &quot;C&quot;       &quot;A&quot; 
+      &quot;B&quot;       &quot;C&quot;       &quot;D&quot;       &quot;D&quot;       &quot;F&quot;       &quot;D&quot;       &quot;C&quot; 
 student15 student16 student17 student18 student19 student20 
-      &quot;D&quot;       &quot;B&quot;       &quot;F&quot;       &quot;A&quot;       &quot;D&quot;       &quot;F&quot; 
+      &quot;D&quot;       &quot;B&quot;       &quot;A&quot;       &quot;C&quot;       &quot;F&quot;       &quot;C&quot; 
 
 $A
-[1] &quot;student4&quot;  &quot;student7&quot;  &quot;student14&quot; &quot;student18&quot;
+[1] &quot;student1&quot;  &quot;student17&quot;
 
 $B
-[1] &quot;student3&quot;  &quot;student5&quot;  &quot;student16&quot;
+[1] &quot;student8&quot;  &quot;student16&quot;
 
 $C
-[1] &quot;student1&quot;  &quot;student9&quot;  &quot;student12&quot; &quot;student13&quot;
+[1] &quot;student3&quot;  &quot;student6&quot;  &quot;student9&quot;  &quot;student14&quot; &quot;student18&quot; &quot;student20&quot;
 
 $D
-[1] &quot;student2&quot;  &quot;student6&quot;  &quot;student11&quot; &quot;student15&quot; &quot;student19&quot;
+[1] &quot;student5&quot;  &quot;student7&quot;  &quot;student10&quot; &quot;student11&quot; &quot;student13&quot; &quot;student15&quot;
 
 $F
-[1] &quot;student8&quot;  &quot;student10&quot; &quot;student17&quot; &quot;student20&quot;</code></pre>
+[1] &quot;student2&quot;  &quot;student4&quot;  &quot;student12&quot; &quot;student19&quot;</code></pre>
 </div>
 </div>
 </div>
