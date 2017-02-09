@@ -183,24 +183,6 @@ filter(QG17.lab.2,factor1 == "b" & factor2 =="info8") # Note the & operator whic
 
 - You can think of your R session as your workbench, and the packages as specific tools in your toolbox. You wouldn't empty out the toolbox onto your workbench for a simple task like sanding a surface. The only thing you need is some sandpaper, and any additional tool just occupies additional space and contributes only to the aesthetics of your workspace (or acts against it).
 
-#### Logical Operations
-
-* And (&): Both statements on either side of the operator needs to be true
-* Or (|): One of the statements on either side of the operator needs to be true
-* Not (!): True only if the statement is False (vice versa)
-
-```{r}
-print (T&F)
-print (T&T)
-
-print (T|F)
-print (T|T)
-
-print(!F)
-print(!T)
-```
-
-
 ### 2. for loops
 
 - For loops are mainly used in cases where you want to apply a function iteratively over a vector, matrix or data frame (or just simply do a task multiple times)
@@ -262,7 +244,58 @@ print(N)
 
 ```
 
-### 3. Vector and Matrix calculations
+
+### 3. If / else statements 
+
+- By using if and else statements you can insert condition specific executions in your script
+
+- The code inside an if statement will only be executed when the condition is TRUE
+
+- The structure looks like this
+
+```{r, comment = NA, eval = FALSE}
+if (condition) {
+  do stuff
+} else {
+  do stuff
+}
+
+# OR you can add more levels by using else if
+
+if(condition){
+  do stuff
+} else if (condition 2){
+  do stuf
+} else {
+  do stuff
+}
+```
+
+
+- Here is a simple example
+
+```{r, comment = NA}
+
+example.vector <- seq(1,25,by= 2)
+# Loop over individual elements in example.vector
+for( i in example.vector){
+  
+    if( i < 10 ){
+        cat(i, "is smaller than 10 \n") 
+    } else if ( 10 <= i & i < 20){
+        cat(i, "is in the interval [10,20) \n")
+    } else {
+        cat(i, "is larger than 20 \n")
+    }
+
+}
+
+
+```
+
+
+
+### 4. Vector and Matrix calculations
 
 - If you want to modify each element of a vector by a scalar value you can use the math operations that we have learned last week.
 
