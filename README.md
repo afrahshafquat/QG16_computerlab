@@ -13,7 +13,7 @@ Quantitative Genomics and Genetics 2017 Spring
 * R Basics 
 * Data structures 
 
-### Lab 2 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG17_computerlab/blob/master/Lab2/QG17_computerlab2.html "Lab1")
+### Lab 2 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG17_computerlab/blob/master/Lab2/QG17_computerlab2.html "Lab2")
 ---
 
 * Functions
@@ -21,20 +21,20 @@ Quantitative Genomics and Genetics 2017 Spring
 * Vector/Matrix Calculations 
 
 
-### Lab 3 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG17_computerlab/blob/master/Lab3/QG16_computerlab3.html "Lab3")
+### Lab 3 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG17_computerlab/blob/master/Lab3/QG17_computerlab3.html "Lab3")
 ---
 
 * Basic Data Visualization
 * Functions for Probability Distributions
 
-### Lab 4 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG17_computerlab/blob/master/Lab4/QG16_computerlab4.html "Lab4")
+### Lab 4 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG17_computerlab/blob/master/Lab4/QG17_computerlab4.html "Lab4")
 ---
 
 * Boolean data type
 * If statements
 * Data Visualization with GGPLOT
 
-### Lab 5 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG17_computerlab/blob/master/Lab5/QG16_computerlab5.html "Lab5")
+### Lab 5 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG17_computerlab/blob/master/Lab5/QG17_computerlab5.html "Lab5")
 ---
 
 * Random Numbers in R
