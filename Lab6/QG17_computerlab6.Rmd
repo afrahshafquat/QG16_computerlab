@@ -286,7 +286,7 @@ cat("Range of pvalues for second phenotype \n")
 range(pval_mx[,2])
 ```
 
-```{r}
+```{r, echo=F, comment=NA}
 library(ggplot2)
 library(gridExtra)
 g1<-ggplot(data=data.frame(y=-log10(pval_mx[,1]), x=1:n_geno))+geom_point(aes(x=x,y=y))+labs(y='-log10(pvalue)',x='Markers', title='Manhattan Plot: Phenotype 1')+geom_hline(yintercept = -log10(0.05/n_geno), color='red')
