@@ -41,7 +41,7 @@ Quantitative Genomics and Genetics 2017 Spring
 * Sampling Distribution of the Mean and P-values
 * Checklist of what we have covered so far
 
-### Lab 5 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG17_computerlab/blob/master/Lab6/QG17_computerlab6.html "Lab6")
+### Lab 6 - [Notes](http://htmlpreview.github.io/?https://github.com/afrahshafquat/QG17_computerlab/blob/master/Lab6/QG17_computerlab6.html "Lab6")
 ---
 
 * Handling genotype data
