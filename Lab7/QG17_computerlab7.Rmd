@@ -1,3 +1,4 @@
+
 ---
 author: "Afrah Shafquat"
 output: html_document
@@ -78,7 +79,7 @@ You can see that there are 5 different results saved in the variable pca.result.
 #$sdev contains information about the fraction of variation explained by a certain principal component.
 pca.result$sdev
 
-(pca.result$sdev / sum(pca.result$sdev))*100
+pcs = (pca.result$sdev / sum(pca.result$sdev))*100
 ```
 
 + What is shown here is the percentage of variance explained by each principal component. This means that the first PC explains ~74% of the variation in the data, and the second component explains about 26% of the variation and so on. 
@@ -103,18 +104,12 @@ pca.result$center
 pca.result$scale
 
 #$x contains the coordinate values of the data projected to a principal component in each of its columns.
-plot(pca.result$x[,1],pca.result$x[,2],xlim = c(-5,5), ylim = c(-5,5))
+plot(pca.result$x[,1],pca.result$x[,2],xlim = c(-5,5), ylim = c(-5,5), xlab=paste0('PC1: ', pcs[1],'%'), ylab=paste0('PC2: ',pcs[2],'%'), main='PCA: Example data')
 
 ```
 
 You can see that the representation of the data looks like a rotation using the diagonal of the original data as the first axis. So if we are interested in only keeping 1-D of the data without losing too much information, our best shot would be to keep the first column of the projected data pca.result$x[,1].
 
-
-### Exercise
-
-- You can find a dataset with 18 gene expression measurements from 462 individuals. Use PCA to see if there is an interesting structure in the dataset. 
-
-- If you find something interesting try to look up the genes on the internet and figure out what might be causing this.
 
 ### 2. Including Covariates in Regression Models 
 
@@ -203,13 +198,7 @@ LRT_test <- function(logl_H0, logl_HA, df_test){
     pval <- pchisq(LRT, df_test, lower.tail = F)
     return(pval)
 }
-plot_qq<-function(pval_vec, n_geno, title){
-  sorted_pvals <- sort(pval_vec, decreasing = FALSE)
-  sorted_expected <- sort(runif(n_geno), decreasing = FALSE)
 
-  plot(-log10(sorted_expected), -log10(sorted_pvals), main = paste("QQplot", title), xlab = 'Expected p-values', ylab='Observed p-values')
-  abline(a = 0, b = 1, col = "red")
-}
 ```
 
 Now let's see what the effects are for covariate inclusion. 
@@ -252,7 +241,7 @@ LRT_test(h0_includecovar, ha_includecovar, df_test = 1)
 ### Exercise: Principal Components as covariates 
 
 A common practice in the GWAS world is to include principal components (PC) in the regression model to account for variance in the expression values, or population structure in the genotypes. For the former, one would calculate the PCs using the expression values and genotypes values for the latter.  
+
 There is no golden rule of how many of those PCs to include in the model, but for some cases people have used the percent variance explained by PCs to decide how many to include. 
 
 Perform the traditional GWA with and without PCs as covariates and plot a qq-plot in each case to see the difference.
-
