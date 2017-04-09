@@ -1,0 +1,258 @@
+---
+author: "Afrah Shafquat"
+output: html_document
+---
+
+Quantitative Genomics and Genetics 2017
+======
+
+Computer Lab 7
+------
+
+-- 13 April 2017
+
+-- Author: Afrah Shafquat
+
+
+
+### 1. Principal Component Analysis
+
+One of the biggest challenges in dealing with gene expression or genotype data is the high dimensionality of the data. Transcriptome wide gene expression datasets usally have 10,000 + gene expression levels measured and commonly used genotype datasets have around 600,000 ~ 900,0000 dimensions. The high dimensionalities not only make it difficult to perform statistical analyses on the data, but also make it hard to visualize and inspect the data. Today we will learn how to use Principal component analysis (PCA) to deal with this problem. 
+
+
+I also highly recommend the tutorial written by Jonathon Shlens: 
+http://arxiv.org/pdf/1404.1100.pdf
+
+#### PCA in R
+
+Let's begin with a simple case where we have two measured variables x and y which are generated like this: 
+
+```{r, comment = NA, echo = FALSE}
+
+set.seed(1987)
+
+```
+
+```{r , comment = NA, fig.align='center'}
+
+x <- 2 + rnorm(300,0,1)
+y <- 0.5 + 1*x + rnorm(300,0,1)
+
+example.data <- cbind(x,y)
+plot(example.data[,1],example.data[,2])
+
+```
+
+We can see that x and y are heavily correlated, which is not very surprising since the value of y was generated based on the value of x. In this case we don't really need to reduce the dimensions since a 2-D plot is easy to generate. However, for the sake of demonstration (and the lack of ability to plot 4 or 5 dimensional data) let us try to reduce this 2 dimensional dataset into a single dimension without losing too much information. The most valuable information in this dataset is probably the correlation between x and y (since there is not much left if you take that relationship out... just normal errors). So it seems like a good idea to keep that information in the single dimension that we have. Let's first center our data to (0,0) to make it easier to draw vectors. 
+
+
+```{r , comment = NA, fig.align='center'}
+example.data.center <- scale(example.data, center = TRUE, scale = FALSE)
+plot(example.data.center[,1], example.data.center[,2],xlim = c(-5,5), ylim = c(-5,5))
+arrows(x0=0, y0=0, x1 = 1, y1 = 0, col = "red", lwd = 3,length =0.15)
+arrows(x0=0, y0=0, x1 = 0, y1 = 1, col = "red", lwd = 3,length =0.15)
+
+```
+
+So right now the data is represented by the coordinates of x and y, and the basis vectors are (1,0) and (0,1) shown as the red arrows. In order to capture the relationship between x and y and representing the data in 1-D we would probably use a vector that goes along the diagonal of the data. The direction along the diagonal explains the the largest amount of variance in the data (has the largest spread along its direction) and if we project each data point onto this vector we wont be losing too much information about the relationship between x and y. Let's find out the exact direction of that vector by using pca in R. There are two functions in R that are commonly used to perform pca: prcomp() and princomp(). Although they are doing the same thing, they use slightly different methods to calculate the outcomes and prcomp() happens to use the method that is faster and is computationally less expensive. So let's use prcomp() to do our calculations.
+
+```{r, comment = NA}
+
+# when you use prcomp, your input data should have measrued variables in columns and individual samples/points as rows (N samples x G genes (genotypes))
+pca.result <- prcomp(example.data.center)
+
+```
+
+That was easy, but what is saved in the result?
+
+```{r, comment = NA}
+
+str(pca.result)
+
+```
+
+You can see that there are 5 different results saved in the variable pca.result. 
+
+
+```{r, comment = NA, fig.align='center'}
+#$sdev contains information about the fraction of variation explained by a certain principal component.
+pca.result$sdev
+
+(pca.result$sdev / sum(pca.result$sdev))*100
+```
+
++ What is shown here is the percentage of variance explained by each principal component. This means that the first PC explains ~74% of the variation in the data, and the second component explains about 26% of the variation and so on. 
+
+
+```{r, comment = NA, fig.align='center', fig.height=5, fig.width=5}
+#$rotation contains the directions of principal components in each of its columns.
+pca.result$rotation
+
+plot(example.data.center[,1], example.data.center[,2],xlim = c(-5,5), ylim = c(-5,5))
+arrows(x0=0, y0=0, x1 = pca.result$rotation[1,1], y1 = pca.result$rotation[2,1], col = "red", lwd = 2,length =0.15)
+arrows(x0=0, y0=0, x1 = pca.result$rotation[1,2], y1 = pca.result$rotation[2,2], col = "red", lwd = 2,length =0.15)
+```
+
++ We can see that the first PC is the direction along the diagonal.
+
+```{r, comment = NA, fig.align='center'}
+#$center contains the mean for each data column (in our case it would be close or equal to 0 since we centered the data). 
+pca.result$center
+
+#$scale contains information about whether or not we gave the option to scale (divide it by its standard deviation) the data. 
+pca.result$scale
+
+#$x contains the coordinate values of the data projected to a principal component in each of its columns.
+plot(pca.result$x[,1],pca.result$x[,2],xlim = c(-5,5), ylim = c(-5,5))
+
+```
+
+You can see that the representation of the data looks like a rotation using the diagonal of the original data as the first axis. So if we are interested in only keeping 1-D of the data without losing too much information, our best shot would be to keep the first column of the projected data pca.result$x[,1].
+
+
+### Exercise
+
+- You can find a dataset with 18 gene expression measurements from 462 individuals. Use PCA to see if there is an interesting structure in the dataset. 
+
+- If you find something interesting try to look up the genes on the internet and figure out what might be causing this.
+
+### 2. Including Covariates in Regression Models 
+
+If genotype effects and random noise were the only variables having an effect on the phenotype (y), the models that we've used so far will be sufficient. However, in most real datasets there are many other factors that might have an influence on the phenotypes that we are interested in. For example, in gene expression measurements it has been shown that techincal artifacts, such as laboratory specific protocols or exposure to slight environmental perturbations, can cause systematic differences between samples. Since genetic effects are mostly very small, this usually results in a loss of statistical power leading to incorrect results. On top of that, a correlation structure between the independent variables (x) (for example genome wide correlated genotypes) can also obscure the output by calling too many variables significant (the problem of population structure in GWAS). Today we are going to learn how to include additional covariates in the model to account for such factors.
+
+### Linear Regression with Covariates
+
+So far the regression models that we have tested were only useful for testing a null hypothesis where the genotype betas are all 0 against an alternative hypothesis where the betas for genotypes have a non-zero value. However, when including covariates we are only interested in the beta values of the genotypes not the covariate beta values. In other words, we don't really care if the covariates have an effect on the phenotype, we just want to know whether the genotypes have an effect. So now the null hypothesis has to change a little bit, and to accommodate that change we have to use a slightly different framework than before. We are going to use the likelihood ratio test for this purpose. 
+
+The null is now :
+
+y = beta_mu + beta_c * covariate + error 
+
+and the alternative is :
+
+y = beta_mu + beta_g * genotypes + beta_c * covariate + error
+
+To test the significance of genotypes in this framework, we are going to calculate the likelihood for the null and the alternative and use a likelihood ratio test similar to what we did in the logistic regression lab. In order to do this, we first have to create a function to calculate the likelihood for the model fit. 
+
+```{r, comment = NA, echo = TRUE, eval = FALSE}
+
+library(MASS)
+library(lmtest)
+
+lr_likelihood <- function(y, x_input = NULL){
+    n_samples <- length(y)
+
+    X_mx <- cbind(matrix(1, nrow = n_samples, ncol = 1), x_input)
+
+    MLE_beta <- # get mle estimates for each beta
+    
+    y_hat <-    # calculate predicted y values
+    
+    var_hat <-  # calculate the mle estimator for the variance 
+    
+    log_likelihood <- # calculate the log likelihood
+    
+    return(log_likelihood)
+}
+```
+
+```{r, comment = NA, echo = FALSE}
+
+library(MASS)
+
+lr_likelihood <- function(y, x_input = NULL){
+    n_samples <- length(y)
+
+    X_mx <- cbind(matrix(1, nrow = n_samples, ncol = 1), x_input)
+
+    MLE_beta <- ginv(t(X_mx) %*% X_mx) %*% t(X_mx) %*% y
+    
+    y_hat <- X_mx %*% MLE_beta
+    
+    var_hat <- sum((y - (y_hat))^2) / (n_samples - 1)
+    
+    log_likelihood <- -((n_samples / 2) * log(2 * pi * var_hat) ) - ((1/ (2*var_hat)) * sum((y - (y_hat))^2))
+    
+    return(log_likelihood)
+}
+```
+
+To use the likelihood ratio test, we would also need a function to calculate a p-value from two given log-likelihoods. 
+
+```{r, comment = NA, echo = TRUE, eval = FALSE}
+
+LRT_test <- function(logl_H0, logl_HA, df_test){
+
+    # the degree of freedom for this test will be the difference in the number of parameters between the null and alternative
+  
+    LRT <- #likelihood ratio test statistic
+  
+    pval <- # calculate p-value
+    return(pval)
+}
+
+```
+
+
+```{r, comment = NA, echo = FALSE}
+
+LRT_test <- function(logl_H0, logl_HA, df_test){
+
+    LRT<-2*logl_HA-2*logl_H0 #likelihood ratio test statistic
+    #likelihood ratio test statistic for every genotype
+    pval <- pchisq(LRT, df_test, lower.tail = F)
+    return(pval)
+}
+plot_qq<-function(pval_vec, n_geno, title){
+  sorted_pvals <- sort(pval_vec, decreasing = FALSE)
+  sorted_expected <- sort(runif(n_geno), decreasing = FALSE)
+
+  plot(-log10(sorted_expected), -log10(sorted_pvals), main = paste("QQplot", title), xlab = 'Expected p-values', ylab='Observed p-values')
+  abline(a = 0, b = 1, col = "red")
+}
+```
+
+Now let's see what the effects are for covariate inclusion. 
+
+First, simply testing the genotype effect with or without a covariate effect on the phenotype leads to different levels of significance. 
+
+```{r, comment = NA, echo = TRUE}
+set.seed(1987)
+
+x = sample(c(-1,0,1), 100, replace = TRUE)
+
+y = 0.9 * x + rnorm(100)
+
+h0_nocovar <- lr_likelihood(y)
+h1_nocovar <- lr_likelihood(y, x)
+
+LRT_test(h0_nocovar, h1_nocovar, df_test = 1)
+```
+
+You can see that the introduction of additional variance that is not normal lowers the significance of the model.  
+
+```{r, comment = NA, echo = TRUE}
+x_c = sample(c(0,1), 100, replace = TRUE)
+y2 = y + 0.8 * x_c 
+  
+h0_withcovar <- lr_likelihood(y2)
+h1_withcovar <- lr_likelihood(y2, x)
+LRT_test(h0_withcovar, h1_withcovar, df_test = 1)
+```
+
+This effect can be corrected by accounting for the additional variance in the null model.
+
+```{r, comment = NA, echo = TRUE}
+h0_includecovar <- lr_likelihood(y2, x_c)
+ha_includecovar <- lr_likelihood(y2, cbind(x,x_c))
+LRT_test(h0_includecovar, ha_includecovar, df_test = 1)
+```
+
+
+### Exercise: Principal Components as covariates 
+
+A common practice in the GWAS world is to include principal components (PC) in the regression model to account for variance in the expression values, or population structure in the genotypes. For the former, one would calculate the PCs using the expression values and genotypes values for the latter.  
+There is no golden rule of how many of those PCs to include in the model, but for some cases people have used the percent variance explained by PCs to decide how many to include. 
+
+Perform the traditional GWA with and without PCs as covariates and plot a qq-plot in each case to see the difference.
+
