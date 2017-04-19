@@ -80,6 +80,8 @@ You can see that there are 5 different results saved in the variable pca.result.
 pca.result$sdev
 
 pcs = (pca.result$sdev / sum(pca.result$sdev))*100
+
+print(pcs)
 ```
 
 + What is shown here is the percentage of variance explained by each principal component. This means that the first PC explains ~74% of the variation in the data, and the second component explains about 26% of the variation and so on. 
