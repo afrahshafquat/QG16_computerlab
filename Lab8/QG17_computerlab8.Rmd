@@ -272,8 +272,8 @@ logistic.IRLS<- function(Xa,Xd,Y =Y, beta.initial.vec = c(0,0,0), d.stop.th = 1e
 
 
 
-Y <- read.table("./QG17_Lab7_phenotypes.tsv", header = F,stringsAsFactors = F)
-geno <- read.table("./QG17_Lab7_genotypes.tsv", header = T)
+Y <- read.table("./QG17_Lab8_phenotypes.tsv", header = F,stringsAsFactors = F)
+geno <- read.table("./QG17_Lab8_genotypes.tsv", header = T)
 
 Y <- as.matrix(Y)
 colnames(Y) <- NULL
